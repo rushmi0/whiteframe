@@ -15,9 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
@@ -43,12 +43,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun MyAlignments() {
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(Color(0xFFE0E0E0))
+            .padding(top = 35.dp),
+        horizontalArrangement = Arrangement.SpaceAround
     ) {
         Text(
             text = "Hello",
@@ -58,10 +58,10 @@ private fun MyAlignments() {
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .background(Color.Red)
+                .background(Color.Red, shape = RoundedCornerShape(7.dp))
                 .padding(start = 20.dp, end = 20.dp, top = 5.dp, bottom = 5.dp)
         )
-        Spacer(modifier = Modifier.size(20.dp))
+        //Spacer(modifier = Modifier.size(20.dp))
 
         Text(
             text = "Kotlin",
@@ -71,10 +71,16 @@ private fun MyAlignments() {
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .background(Color.Red)
+                .background(
+                    Color.Green,
+                    shape = RoundedCornerShape(
+                        topStart = 7.dp,
+                        topEnd = 7.dp,
+                    )
+                )
                 .padding(start = 20.dp, end = 20.dp, top = 5.dp, bottom = 5.dp)
         )
-        Spacer(modifier = Modifier.size(20.dp))
+        //Spacer(modifier = Modifier.size(20.dp))
 
         Text(
             text = "Android",
@@ -84,47 +90,24 @@ private fun MyAlignments() {
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .background(Color.Red)
+                .background(Color.Blue,
+                    shape = RoundedCornerShape(
+                        bottomStart = 7.dp,
+                        bottomEnd = 7.dp
+                    )
+                )
                 .padding(start = 20.dp, end = 20.dp, top = 5.dp, bottom = 5.dp)
         )
-        Spacer(modifier = Modifier.size(20.dp))
 
     }
 }
 
-
-@Composable
-fun MyLayouts(name: String) {
-    Column {
-        Box(
-            modifier = Modifier
-                .background(Color.Red)
-                .height(200.dp)
-                .width(300.dp)
-        ) {
-            Row {
-
-                Box(
-                    modifier = Modifier
-                        .size(60.dp)
-                        .background(Color.Blue)
-                )
-                Column(modifier = Modifier.background(Color.Green)) {
-                    Text(text = "Hello")
-                    Text(text = "$name!")
-                }
-            }
-
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     WhiteFrameTheme {
-        //Greeting("Android")
-        //MyLayouts("Android")
+
         MyAlignments()
 
     }
