@@ -41,6 +41,12 @@ android {
 
 dependencies {
 
+    // https://mvnrepository.com/artifact/androidx.compose.material3/material3
+    implementation("androidx.compose.material3:material3:1.3.2")
+
+    // https://mvnrepository.com/artifact/androidx.compose.material/material-icons-extended
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
