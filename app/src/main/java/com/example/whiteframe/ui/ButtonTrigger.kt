@@ -21,13 +21,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
-@Preview(showBackground = true)
 @Composable
-fun ButtonTrigger() {
+fun ButtonTrigger(
+    onPlus: () -> Unit,
+    onMinus: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -38,7 +39,7 @@ fun ButtonTrigger() {
         ) {
 
             Button(
-                onClick = {},
+                onClick = onPlus,
                 modifier = Modifier.width(130.dp),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -50,8 +51,9 @@ fun ButtonTrigger() {
                 Text(text = "Plus", modifier = Modifier.padding(start = 5.dp))
             }
 
+
             Button(
-                onClick = {},
+                onClick = onMinus,
                 modifier = Modifier.width(130.dp),
                 shape = RoundedCornerShape(7.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -62,8 +64,6 @@ fun ButtonTrigger() {
                 Icon(Icons.Default.Remove, contentDescription = "Decrease")
                 Text(text = "Minus", modifier = Modifier.padding(start = 5.dp))
             }
-            
-
         }
     }
 }

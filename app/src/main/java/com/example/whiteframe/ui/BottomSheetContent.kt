@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun BottomSheetContent(
     counter: Int,
-    onIncrement: () -> Unit,
-    onDecrement: () -> Unit,
+    onPlus: () -> Unit,
+    onMinus: () -> Unit,
     onClose: () -> Unit
 ) {
     Column(
@@ -35,10 +35,10 @@ fun BottomSheetContent(
             horizontalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxWidth()
         ) {
-            IconButton(onClick = onDecrement) {
+            IconButton(onClick = onMinus) {
                 Icon(Icons.Default.Remove, contentDescription = "Decrease")
             }
-            IconButton(onClick = onIncrement) {
+            IconButton(onClick = onPlus) {
                 Icon(Icons.Default.Add, contentDescription = "Increase")
             }
         }

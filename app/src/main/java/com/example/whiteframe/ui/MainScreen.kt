@@ -20,7 +20,10 @@ import kotlinx.coroutines.launch
 fun MainScreen() {
     val sheetState = rememberModalBottomSheetState()
     val scope = rememberCoroutineScope()
+
+    // ย้าย counter ไปเป็น state กลาง
     val counter = remember { mutableStateOf(0) }
+
     var showSheet by remember { mutableStateOf(false) }
 
     Box(
@@ -30,8 +33,13 @@ fun MainScreen() {
             .padding(top = 35.dp),
     ) {
         AlignmentRow()
-        DisplayCount()
-        ButtonTrigger()
+
+        DisplayCount(counter = counter.value)
+
+        ButtonTrigger(
+            onPlus = { counter.value += 1 },
+            onMinus = { counter.value -= 1 }
+        )
 
         FloatingActionButton(
             onClick = {
@@ -55,8 +63,8 @@ fun MainScreen() {
             ) {
                 BottomSheetContent(
                     counter = counter.value,
-                    onIncrement = { counter.value += 1 },
-                    onDecrement = { counter.value -= 1 },
+                    onPlus = { counter.value += 1 },
+                    onMinus = { counter.value -= 1 },
                     onClose = {
                         scope.launch { sheetState.hide() }.invokeOnCompletion {
                             showSheet = false
@@ -67,3 +75,4 @@ fun MainScreen() {
         }
     }
 }
+
