@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-.idea/developer-tools.xml
+/.idea/developer-tools.xml
