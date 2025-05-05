@@ -26,8 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     WhiteFrameTheme {
-
         MainScreen()
-
     }
 }

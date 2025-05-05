@@ -1,5 +1,6 @@
 package com.example.whiteframe.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -8,10 +9,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
 @Composable
 fun MainScreen() {
     val sheetState = rememberModalBottomSheetState()
@@ -19,8 +23,15 @@ fun MainScreen() {
     val counter = remember { mutableStateOf(0) }
     var showSheet by remember { mutableStateOf(false) }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFE0E0E0))
+            .padding(top = 35.dp),
+    ) {
         AlignmentRow()
+        DisplayCount()
+        ButtonTrigger()
 
         FloatingActionButton(
             onClick = {
