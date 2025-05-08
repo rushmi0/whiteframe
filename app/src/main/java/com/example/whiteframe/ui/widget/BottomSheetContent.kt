@@ -1,4 +1,4 @@
-package com.example.whiteframe.ui
+package com.example.whiteframe.ui.widget
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons

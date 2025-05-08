@@ -1,4 +1,4 @@
-package com.example.whiteframe.ui
+package com.example.whiteframe.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -12,12 +12,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.whiteframe.ui.widget.AlignmentRow
+import com.example.whiteframe.ui.widget.BottomSheetContent
+import com.example.whiteframe.ui.widget.ButtonTrigger
+import com.example.whiteframe.ui.widget.DisplayCount
+import com.example.whiteframe.ui.anim.DotWindmill
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
-fun MainScreen() {
+fun DemoScreen() {
     val sheetState = rememberModalBottomSheetState()
     val scope = rememberCoroutineScope()
 
@@ -33,6 +38,10 @@ fun MainScreen() {
             .padding(top = 35.dp),
     ) {
         AlignmentRow()
+
+        Column(modifier = Modifier.fillMaxSize().padding(top = 600.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            DotWindmill()
+        }
 
         DisplayCount(counter = counter.value)
 

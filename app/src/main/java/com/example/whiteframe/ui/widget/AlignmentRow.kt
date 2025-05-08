@@ -1,4 +1,4 @@
-package com.example.whiteframe.ui
+package com.example.whiteframe.ui.widget
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.background

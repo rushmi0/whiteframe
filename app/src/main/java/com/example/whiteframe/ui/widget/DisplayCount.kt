@@ -1,9 +1,8 @@
-package com.example.whiteframe.ui
+package com.example.whiteframe.ui.widget
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +17,7 @@ fun DisplayCount(counter: Int) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 280.dp),
+            .padding(top = 380.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Box(
