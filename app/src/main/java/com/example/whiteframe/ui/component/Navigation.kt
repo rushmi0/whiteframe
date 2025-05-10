@@ -14,11 +14,11 @@ import com.example.whiteframe.ui.screen.WalletScreen
 @Composable
 fun NavigationGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Home.route) {
-        composable(Screen.Home.route) { MainScreen() }
-        composable(Screen.Profile.route) { ProfileScreen() }
-        composable(Screen.Animations.route) { AnimationsScreen() }
-        composable(Screen.Wallet.route) { WalletScreen() }
-        composable(Screen.Demo.route) { DemoScreen() }
+        composable(route = Screen.Home.route) { MainScreen() }
+        composable(route = Screen.Profile.route) { ProfileScreen() }
+        composable(route = Screen.Animations.route) { AnimationsScreen() }
+        composable(route = Screen.Wallet.route) { WalletScreen() }
+        composable(route = Screen.Demo.route) { DemoScreen() }
     }
 }
 

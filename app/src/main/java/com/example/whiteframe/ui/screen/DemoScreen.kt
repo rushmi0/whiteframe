@@ -27,7 +27,7 @@ fun DemoScreen() {
     val scope = rememberCoroutineScope()
 
     // ย้าย counter ไปเป็น state กลาง
-    val counter = remember { mutableStateOf(0) }
+    val counter = remember { mutableIntStateOf(0) }
 
     var showSheet by remember { mutableStateOf(false) }
 
@@ -39,15 +39,20 @@ fun DemoScreen() {
     ) {
         AlignmentRow()
 
-        Column(modifier = Modifier.fillMaxSize().padding(top = 600.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 600.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             DotWindmill()
         }
 
-        DisplayCount(counter = counter.value)
+        DisplayCount(counter = counter.intValue)
 
         ButtonTrigger(
-            onPlus = { counter.value += 1 },
-            onMinus = { counter.value -= 1 }
+            onPlus = { counter.intValue += 1 },
+            onMinus = { counter.intValue -= 1 }
         )
 
         FloatingActionButton(
@@ -71,9 +76,9 @@ fun DemoScreen() {
                 shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
             ) {
                 BottomSheetContent(
-                    counter = counter.value,
-                    onPlus = { counter.value += 1 },
-                    onMinus = { counter.value -= 1 },
+                    counter = counter.intValue,
+                    onPlus = { counter.intValue += 1 },
+                    onMinus = { counter.intValue -= 1 },
                     onClose = {
                         scope.launch { sheetState.hide() }.invokeOnCompletion {
                             showSheet = false
